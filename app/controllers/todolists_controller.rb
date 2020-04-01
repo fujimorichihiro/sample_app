@@ -1,12 +1,13 @@
 #コントローラ
 class TodolistsController < ApplicationController
  #------------------------------------------------------------------------
-  def new #アクションを定義
+ #-----------
+  def new
     #Viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する。
     @list = List.new
   end
-#------------------------------------
-  def create 
+#------------
+  def create
    #ストロングパラメータ
     list = List.new(list_params)
    #datebaseへ保存
@@ -15,6 +16,16 @@ class TodolistsController < ApplicationController
    #トップ画面へリダイレクト
     redirect_to '/top'
   end
+#-----------
+  def index
+  	@lists = List.all #すべてのデータをとりだす。
+  end
+#-----------
+  def show
+  	@list = List.find(params[:id])
+  end
+#-----------
+
 #--------------------------↓ストロングパラメータ↓-----------------------------------------------------
   private #境界線、private以下はコントロ―ラの中でしか呼び出せない。
           #またprivateより後に定義されたメソッドはアクションとして認識されない！
