@@ -1,5 +1,8 @@
-class HomesController < ApplicationController
-	def top
+#コントローラ
+#rails g controller コントローラー名
 
-	end
+class HomesController < ApplicationController
+    def top#topページを表示するアクションを定義
+
+    end
 end
