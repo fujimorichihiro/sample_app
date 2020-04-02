@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'todolists' => 'todolists#index'
 
   get 'todolists/:id' => 'todolists#show', as: 'todolist'
-end
+end     #URL
 #ルーティング
 #---------------------------------------------------------------------------------
 #ユーザーが特定のＵＲＬにアクセスしたときに、どのコントローラのどのアクションに振り分けるかを定義するファイル。
