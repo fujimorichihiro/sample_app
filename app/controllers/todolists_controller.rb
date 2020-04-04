@@ -9,7 +9,7 @@ class TodolistsController < ApplicationController
 #------------
   def create
    #ストロングパラメータ
-    list = List.new(list_params)
+    list = List.new(list_params) #ローカル変数
    #datebaseへ保存
     list.save
    #    ↓
@@ -36,11 +36,11 @@ def update
 end
 
 #--------------------------↓ストロングパラメータ↓-----------------------------------------------------
-  private #境界線、private以下はコントロ―ラの中でしか呼び出せない。
-          #またprivateより後に定義されたメソッドはアクションとして認識されない！
+  private #境界線
+          #privateより後に定義されたメソッドはアクションとして認識されずコントローラの中でしか呼び出せない！
 
   def list_params                               #フォームで入力されたデータを受け取り格納する。
-    params.require(:list).permit(:title, :body) #params Railsで送られてきた値を受け取るメソッド
+    params.require(:list).permit(:title, :body, :image) #params Railsで送られてきた値を受け取るメソッド
   end                                           #require データのオブジェクト名を指定
                                                 #permitでキーを指定
                                                 #params.require(:モデル名).permit(:カラム名1、カラム名2、、)

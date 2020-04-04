@@ -2,6 +2,7 @@
 <!--　投稿ページ -->
 <h1>新規投稿</h1>
 <!-- from for部分 -->
+<!-- submitからデータを送信し、タグ内に記述したURLに画面遷移する。 -->
 <%= form_for(@list, url: '/todolists') do |f| %>
 
     <h4>タイトル</h4>
@@ -9,6 +10,9 @@
 
     <h4>本文</h4>
     <%= f.text_area :body %>
+
+    <h4>本文</h4>
+    <%= f.attachment_field :image %>
 
     <%= f.submit '投稿' %>
 
