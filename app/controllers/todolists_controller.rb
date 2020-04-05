@@ -35,6 +35,12 @@ def update
 	redirect_to todolist_path(list.id)
 end
 
+def destroy
+	list = List.find(params[:id]) #データを一件取得
+	list.desroy #削除
+	radirect_to todolists_path #List一覧へリダイレクト
+end
+
 #--------------------------↓ストロングパラメータ↓-----------------------------------------------------
   private #境界線
           #privateより後に定義されたメソッドはアクションとして認識されずコントローラの中でしか呼び出せない！
