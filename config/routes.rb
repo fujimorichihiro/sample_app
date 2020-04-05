@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'todolists/:id/edit' => 'todolists#edit', as: 'edit_todolist'
 
   patch 'todolists/:id' => 'todolists#update', as: 'updata_todolist' #更新
+
+  delete 'todolists/:id' =>'todolists#destroy', as:'destroy_todolist'
 end     
 #ルーティング
 #---------------------------------------------------------------------------------
