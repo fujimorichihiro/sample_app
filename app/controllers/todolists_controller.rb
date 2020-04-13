@@ -12,7 +12,7 @@ class TodolistsController < ApplicationController
 #------------
   def create
    #ストロングパラメータ
-    list = List.new(list_params) #ローカル変数
+    list = List.new(list_params) #ローカル変数,paramsでフォームからデータを受け取っている
    #datebaseへ保存
     list.save
    #    ↓
@@ -33,15 +33,15 @@ class TodolistsController < ApplicationController
   end
 #-----------
 def update
-	list = List.find(params[:id])
-	list.update(list_params)
+	list = List.find(params[:id]#dでーたを一件取得
+  list.update(list_params)#fフォームからでーたを受け取り更新
 	redirect_to todolist_path(list.id)
 end
 
 def destroy
 	list = List.find(params[:id]) #データを一件取得
 	list.desroy #削除
-	radirect_to todolists_path #List一覧へリダイレクト
+	redirect_to todolists_path #List一覧へリダイレクト
 end
 
 #--------------------------↓ストロングパラメータ↓-----------------------------------------------------
@@ -56,3 +56,9 @@ end
 
 #----------------------------------------------------------------------------
 end
+
+
+#複数のレコードを呼び出すときは@blogsのように複数形
+#viewに渡す変数は@をつける、保存する場合はローカル変数にする。
+#DBからのデータの取得は@list = List.find(list_params[id])
+#フォームからデータを受け取る場合、変数を記述し(list_params)をつけることで受け取れる。
