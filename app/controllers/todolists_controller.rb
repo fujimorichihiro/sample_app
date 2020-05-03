@@ -33,7 +33,7 @@ class TodolistsController < ApplicationController
   end
 #-----------
 def update
-	list = List.find(params[:id]#dでーたを一件取得
+	list = List.find(params[:id])#dでーたを一件取得
   list.update(list_params)#fフォームからでーたを受け取り更新
 	redirect_to todolist_path(list.id)
 end
