@@ -40,7 +40,7 @@ end
 
 def destroy
 	list = List.find(params[:id]) #データを一件取得
-	list.desroy #削除
+	list.destroy #削除
 	redirect_to todolists_path #List一覧へリダイレクト
 end
 
